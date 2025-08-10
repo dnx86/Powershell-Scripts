@@ -9,7 +9,7 @@ $StartDateTime = Get-Date
 Write-Host "Script started at $StartDateTime"
 
 # Variables
-# List of optional componenets that will be added in the order listed.
+# List of optional components that will be added in the order listed.
 $listOCs = @("WinPE-WMI", "WinPE-NetFX", "WinPE-Scripting", "WinPE-PowerShell", "WinPE-DismCmdlets", "WinPE-StorageWMI", "WinPE-SecureStartup", "WinPE-FMAPI", "WinPE-SecureBootCmdlets", "WinPE-EnhancedStorage")
 
 # List of cumulative updates in the CUs folder. KB names are in double quotes separated by commas.
@@ -157,5 +157,6 @@ Start-Process "$pathADKDism" -ArgumentList " /Image:${pathMount} /Cleanup-image 
 # Unmount boot image and save changes
 Write-Host "Unmounting and saving changes to winpe.wim..."
 Dismount-WindowsImage -Path "$pathMount" -Save -Verbose
+
 
 Write-Host "Script completed at $(Get-Date) and took $( ( (Get-Date) - $StartDateTime).Minutes) minutes"
